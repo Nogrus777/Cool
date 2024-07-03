@@ -13,7 +13,7 @@ local Section = NogrusTab:AddSection({
 NogrusTab:AddButton({
 	Name = "Auto-Spin",
 	Callback = function()
-      		print("button pressed")
+      		print("Auto spin ativado!")
 		  while wait(0.0001) do
 local args = {
     [1] = false,
