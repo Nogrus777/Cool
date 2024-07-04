@@ -8,6 +8,44 @@ local NogrusTab = Window:MakeTab({
 	PremiumOnly = false
 })
 local Section = NogrusTab:AddSection({
+	Name = "auto luck potion"
+})
+NogrusTab:AddButton({
+	Name = "Auto coletar potion luck",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+ 
+local function collectPotion(potion)
+    hrp.CFrame = potion.Prim.CFrame
+    wait(1)
+    fireproximityprompt(potion.Prim.ProximityPrompt)
+end
+ 
+while true do
+    local foundPotion = false
+ 
+    for _, potion in pairs(workspace.Misc:GetChildren()) do
+        if potion.Name == "Luck Potion" then
+            collectPotion(potion)
+            foundPotion = true
+            wait(2)
+        end
+    end
+ 
+    if not foundPotion then
+        wait(1)
+    end
+ 
+    wait(5)
+			end
+  	end    
+})
+
+
+
+local Section = NogrusTab:AddSection({
 	Name = "Auto-Farm"
 })
 NogrusTab:AddButton({
@@ -24,5 +62,4 @@ game:GetService("ReplicatedStorage").Events.Spin:InvokeServer(unpack(args))
 end
 	end    
 })
-
 
