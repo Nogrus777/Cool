@@ -3,15 +3,15 @@ local Player = game.Players.localPlayer
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Nogrus Hub | ADMIN RNG", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local NogrusTab = Window:MakeTab({
-	Name = "auto-spin",
+	Name = "auto-Farm",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 local Section = NogrusTab:AddSection({
-	Name = "auto luck potion"
+	Name = "Coletar Lucky potin"
 })
 NogrusTab:AddButton({
-	Name = "Auto coletar potion luck",
+	Name = "Coletar luck potion",
 	Callback = function()
       		local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
@@ -62,4 +62,81 @@ game:GetService("ReplicatedStorage").Events.Spin:InvokeServer(unpack(args))
 end
 	end    
 })
-
+local TeleTab = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = TeleTab:AddSection({
+	Name = "Obby fácil"
+})
+TeleTab:AddButton({
+	Name = "Ir para o obby fácil",
+	Callback = function()
+      		local plr = game.Players.LocalPlayer
+local char = plr.Character
+char.HumanoidRootPart.CFrame = CFrame.new(-597.601, 274.456, 21.1674)
+  	end    
+})
+TeleTab:AddButton({
+	Name = "Terminar obby Fácil",
+	Callback = function()
+      		local plr = game.Players.LocalPlayer
+local char = plr.Character
+char.HumanoidRootPart.CFrame = CFrame.new(-1305.84998, 17.2887249, 2524.10791, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+  	end    
+})
+local Section = TeleTab:AddSection({
+	Name = "Obby difícil"
+})
+TeleTab:AddButton({
+	Name = "Ir para o obby difícil",
+	Callback = function()
+      local plr = game.Players.LocalPlayer
+local char = plr.Character
+char.HumanoidRootPart.CFrame = CFrame.new(-616.600708, 274.455963, 21.0327816, -0.0070681572, 0, -0.999975145, 0, 1, 0, 0.999975145, 0, -0.0070681572)
+    end
+})
+TeleTab:AddButton({
+	Name = "Terminar obby difícil",
+	Callback = function()
+      local plr = game.Players.LocalPlayer
+local char = plr.Character
+char.HumanoidRootPart.CFrame = CFrame.new(-1615.72827, -1.74074268, 2455.42383, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end
+})
+local Section = TeleTab:AddSection({
+	Name = "Spawn"
+})
+TeleTab:AddButton({
+	Name = "Teleportar para o Spawn",
+	Callback = function()
+      local plr = game.Players.LocalPlayer
+local char = plr.Character
+char.HumanoidRootPart.CFrame = CFrame.new(-487.705688, 269.455963, 5.49729156, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end
+})
+local antTab = Window:MakeTab({
+	Name = "Anti-Afk",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = antTab:AddSection({
+	Name = "Anti-Afk"
+})
+antTab:AddButton({
+	Name = "Ativar antiafk",
+	Callback = function()
+      local VirtualUser = game:GetService('VirtualUser')
+game:GetService('Players').LocalPlayer.Idled:connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
+      OrionLib:MakeNotification({
+	Name = "AntiAfk",
+	Content = "AntiAfk ativado!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+  	end    
+})
