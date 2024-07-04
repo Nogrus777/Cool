@@ -48,19 +48,25 @@ while true do
 local Section = NogrusTab:AddSection({
 	Name = "Auto-Farm"
 })
-NogrusTab:AddButton({
-	Name = "Auto-Spin",
-	Callback = function()
-      		print("Auto spin ativado!")
-		  while wait(0.0001) do
-local args = {
-    [1] = false,
-    [2] = false
-}
+local toggleValue = false
+local running = false -- Variável para controlar a execução contínua
 
-game:GetService("ReplicatedStorage").Events.Spin:InvokeServer(unpack(args))
-end
-	end    
+local toggle = NogrusTab:AddToggle({
+    Name = "Auto-Spin",
+    Default = toggleValue,
+    Callback = function(value)
+        toggleValue = value
+        print("Toggle ativada:", value)
+        if value then
+            running = true
+            while running do
+                game:GetService("ReplicatedStorage").Events.Spin:InvokeServer(false, false)
+                wait(0.1)
+            end
+        else
+            running = false
+        end
+    end
 })
 local TeleTab = Window:MakeTab({
 	Name = "Teleport",
